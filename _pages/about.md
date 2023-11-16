@@ -24,4 +24,4 @@ My favorite sport is Basketball. I usually play as a shooting guard.
 
 I love classical music. My favorite piece is Op.53 by Frédéric Chopin, Polonaise in A Flat. My favorite composer is Ludwig van Beethoven.
 
-Phtographying is one of my hobbies. I am particularly fond of shooting natural views. Check out some [here](https://astro-eric.github.io/photos/).
+Photographying is one of my hobbies. I am particularly fond of shooting natural views. Check out some [here](https://astro-eric.github.io/photos/).

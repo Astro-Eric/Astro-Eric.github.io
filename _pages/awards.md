@@ -21,7 +21,7 @@ Team award, with me competing in Mathematical Physics
 
 **Research Excellence Scholarship, Freshman Year**
 
-**Freshman Scholarship (the Second level)**  
+**Freshman Scholarship (the Second Level)**  
 Awarded to outstanding freshman students at Tsinghua University
 
 **36th Chinese Physics Olympiads, Gold Medal (Final), 2019**  

@@ -11,5 +11,5 @@ author_profile: true
 
 {% include base_path %}
 
-[A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning](https://proceedings.neurips.cc/paper_files/paper/2021/file/f5e647292cc4e1064968ca62bebe7e47-Paper.pdf)
-Jianhao Wang, Wenzhe Li, Haozhe Jiang, Guangxiang Zhu, Siyuan Li, Chongjie Zhang
+[A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning](https://proceedings.neurips.cc/paper_files/paper/2021/file/f5e647292cc4e1064968ca62bebe7e47-Paper.pdf)  
+Jianhao Wang<sup>*</sup>, Wenzhe Li<sup>*</sup>, **Haozhe Jiang**, Guangxiang Zhu, Siyuan Li, Chongjie Zhang

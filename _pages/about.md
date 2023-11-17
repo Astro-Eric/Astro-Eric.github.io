@@ -15,7 +15,7 @@ Please feel free to contact me.
 Biography
 ======
 
-I was born and raised in the wonderful city of Shanghai. My childhood dream was to become an astronomer and it triggered my interest in Science when I was still a little boy. Before college, I went to high school at the No.2 High School of East China Normal University. Back then, I took part in Physics Competition and I was deeply impressed by the beauty of Physics. In my freshman and sophomore year I worked primarily with Professor [Chongjie Zhang](https://engineering.wustl.edu/faculty/Chongjie-Zhang.html) on empirical Reinforcement Learning. Later I worked closely with Professor [Simon Du](https://simonshaoleidu.com) and Professor [Maryam Fazel](https://people.ece.uw.edu/fazel_maryam/) on learning problems in Game Theory.
+I was born and raised in the wonderful city of Shanghai. My childhood dream was to become an astronomer and it triggered my interest in Science when I was still a little boy. Before college, I was at the No.2 High School of East China Normal University. Back then, I took part in Physics Competition and I was deeply impressed by the beauty of Physics. In my freshman and sophomore year I worked primarily with Professor [Chongjie Zhang](https://engineering.wustl.edu/faculty/Chongjie-Zhang.html) on empirical Reinforcement Learning. Later I worked closely with Professor [Simon Du](https://simonshaoleidu.com) and Professor [Maryam Fazel](https://people.ece.uw.edu/fazel_maryam/) on learning problems in Game Theory.
 
 Miscellaneous
 ======

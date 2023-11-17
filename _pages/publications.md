@@ -14,7 +14,7 @@ author_profile: true
 ### [A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning](https://arxiv.org/pdf/2306.07465.pdf)  
 **Haozhe Jiang**, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du
 
-Can we track Equilibria in non-stationary Multi-agent systems? We comprehensively analyze this problem and find most non-stationary bandit algorithms fail to generalize. In multi-agents systems, **different actions compete with different best responses**. This forbid us from comparing actions by comparing their own rewards, sabotaging all test-based algorthms. We solve this problem by using an Explore-then-Commit-then-Test algorithm, in combination with prior techniques. This black-box algorithm is simple but admits no-regret guarantee.
+Can we track Equilibria in non-stationary Multi-agent systems? We comprehensively analyze this problem and find most non-stationary bandit algorithms fail to generalize. In multi-agents systems, **different actions compete with different best responses**. This forbid us from comparing actions by comparing their own rewards, sabotaging all test-based algorithms. We solve this problem by using an Explore-then-Commit-then-Test algorithm, in combination with prior techniques. This black-box algorithm is simple but admits no-regret guarantee.
 
 ### [Offline Meta Reinforcement Learning with In-Distribution Online Adaptation](https://arxiv.org/pdf/2305.19529.pdf)  
 Jianhao Wang<sup>*</sup>, Jin Zhang<sup>*</sup>, **Haozhe Jiang**, Junyu Zhang, Liwei Wang, Chongjie Zhang  

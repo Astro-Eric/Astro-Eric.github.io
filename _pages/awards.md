@@ -12,7 +12,7 @@ author_profile: true
 **Yao Award, 2023**  
 Awarded to outstanding senior students at Yao Class
 
-**Silver medal of Yau’s College Mathematics Contest, Silver Medal, 2022**  
+**Yau’s College Mathematics Contest, Silver Medal, 2022**  
 Team award, with me competing in Mathematical Physics
 
 **Versatility Scholarship, Sophomore Year**

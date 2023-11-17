@@ -158,5 +158,5 @@ author_profile: true
   <img src="/images/photos/DSC00496.jpg" style='width: 70%;'>
   <br>
   <em>Maple Tree</em><br>
-  <em>Shanghai Jiaotong University. Shanghai. December 2022.</em>
+  <em>Shanghai. December 2022.</em>
 </p>

@@ -12,7 +12,7 @@ author_profile: true
 {% include base_path %}
 
 ### [A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning](https://arxiv.org/pdf/2306.07465.pdf)  
-**Haozhe Jiang**, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du
+**Haozhe Jiang**, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du  
 Published on ICLR 2024
 
 Can we track Equilibria in non-stationary Multi-agent systems? We comprehensively analyze this problem and find most non-stationary bandit algorithms fail to generalize. In multi-agent systems, **different actions compete with different best responses**. This forbids us from comparing actions by comparing their own rewards, sabotaging all test-based algorithms. We solve this problem by using an Explore-then-Commit-then-Test algorithm, in combination with prior techniques. This black-box algorithm is simple but admits a no-regret guarantee.

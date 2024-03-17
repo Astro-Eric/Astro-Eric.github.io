@@ -8,6 +8,13 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
+  <img src="/images/photos/DSC04818.jpg" style='width: 50%;'>
+  <br>
+  <em>Princeton University School Chapel</em><br>
+  <em>Princeton. March 2024.</em>
+</p>
+
+<p align="center">
   <img src="/images/photos/DSC04386.jpg" style='width: 70%;'>
   <br>
   <em>Sunset after a Rain</em><br>
@@ -43,7 +50,7 @@ author_profile: true
 </p>
 
 <p align="center">
-  <img src="/images/photos/DSC03730.jpg" style='width: 40%;'>
+  <img src="/images/photos/DSC03730.jpg" style='width: 50%;'>
   <br>
   <em>海上生明月</em><br>
   <em>Ala Moana Hotel. Honolulu. July 2023.</em>

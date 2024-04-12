@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Haozhe Jiang, a senior student from Yao Class, Tsinghua University and I am about to join UCB as a PhD student. I have a broad interest in Machine Learning. I am also enthusiastic about Physics. My research mainly focuses on building efficient decision-making agents, including reinforcement learning, multi-agent system etc. I also work on applying machine learning to other fields such as cryptography and astronomy.
+I am Haozhe Jiang, a senior student from Yao Class, Tsinghua University and I am about to join UCB EECS as a PhD student. I have a broad interest in Machine Learning. I am also enthusiastic about Physics. My research mainly focuses on building efficient decision-making agents, including reinforcement learning, multi-agent system etc. I also work on applying machine learning to other fields such as cryptography and astronomy.
 
 Please feel free to reach out to me.
 

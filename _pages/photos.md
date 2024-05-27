@@ -39,14 +39,14 @@ author_profile: true
   <img src="/images/photos/DSC04057.jpg" style='width: 70%;'>
   <br>
   <em>Wish upon a Star</em><br>
-  <em>Sequium. August 2023.</em>
+  <em>Sequim. August 2023.</em>
 </p>
 
 <p align="center">
   <img src="/images/photos/DSC03884.jpg" style='width: 100%;'>
   <br>
   <em>From the Shore</em><br>
-  <em>Sequium. August 2023.</em>
+  <em>Sequim. August 2023.</em>
 </p>
 
 <p align="center">

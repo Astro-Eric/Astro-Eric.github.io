@@ -8,6 +8,27 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
+  <img src="/images/photos/DSC06162.jpg" style='width: 70%;'>
+  <br>
+  <em>山色空蒙</em><br>
+  <em>Tsinghua University. Beijing. May 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC05671.jpg" style='width: 50%;'>
+  <br>
+  <em>St. Michael's Church</em><br>
+  <em>Vienna. May 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC04964.jpg" style='width: 70%;'>
+  <br>
+  <em>乱花渐欲迷人眼</em><br>
+  <em>the National Botanical Garden. Beijing. May 2024.</em>
+</p>
+
+<p align="center">
   <img src="/images/photos/DSC04818.jpg" style='width: 50%;'>
   <br>
   <em>Princeton University School Chapel</em><br>
@@ -18,14 +39,14 @@ author_profile: true
   <img src="/images/photos/DSC04386.jpg" style='width: 70%;'>
   <br>
   <em>Sunset after a Rain</em><br>
-  <em>Beijing. November 2023.</em>
+  <em>Tsinghua University. Beijing. November 2023.</em>
 </p>
 
 <p align="center">
   <img src="/images/photos/DSC04362.jpg" style='width: 70%;'>
   <br>
   <em>花港观鱼</em><br>
-  <em>Hangzhou. November 2023.</em>
+  <em>the West Lake. Hangzhou. November 2023.</em>
 </p>
 
 <p align="center">
@@ -165,5 +186,5 @@ author_profile: true
   <img src="/images/photos/DSC00496.jpg" style='width: 70%;'>
   <br>
   <em>Maple Tree</em><br>
-  <em>Shanghai. December 2022.</em>
+  <em>Shanghai Jiaotong University. Shanghai. December 2022.</em>
 </p>

@@ -11,7 +11,7 @@ author_profile: true
   <img src="/images/photos/DSC06162.jpg" style='width: 70%;'>
   <br>
   <em>山色空蒙</em><br>
-  <em>Tsinghua University. Beijing. May 2024.</em>
+  <em>Tsinghua University. Beijing. June 2024.</em>
 </p>
 
 <p align="center">

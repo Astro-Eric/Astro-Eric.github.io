@@ -143,7 +143,7 @@ author_profile: true
 <p align="center">
   <img src="/images/photos/DSC03094.jpg" style='width: 70%;'>
   <br>
-  <em>Mount Rainier at Dawn</em><br>
+  <em>Mount Rainier at Twilight</em><br>
   <em>the Space Needle. Seattle. May 2023.</em>
 </p>
 

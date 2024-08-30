@@ -8,6 +8,34 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
+  <img src="/images/photos/DSC08159.jpg" style='width: 70%;'>
+  <br>
+  <em>Across the Bay</em><br>
+  <em>Berkeley Bay View Point. Berkeley. August 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC08156.jpg" style='width: 100%;'>
+  <br>
+  <em>七月既望</em><br>
+  <em>Sausalito. August 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC07636.jpg" style='width: 70%;'>
+  <br>
+  <em>Grassland</em><br>
+  <em>Nalat. Ili. July 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC07489.jpg" style='width: 70%;'>
+  <br>
+  <em>Frosty Flowers</em><br>
+  <em>Sayram Lake. Bole. July 2024.</em>
+</p>
+
+<p align="center">
   <img src="/images/photos/DSC06162.jpg" style='width: 70%;'>
   <br>
   <em>山色空蒙</em><br>

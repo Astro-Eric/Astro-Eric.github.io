@@ -8,6 +8,20 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
+  <img src="/images/photos/DSC08369.jpg" style='width: 50%;'>
+  <br>
+  <em>Comet</em><br>
+  <em>Emeryville Marina Park. Emeryville. October 2024.</em>
+</p>
+
+<p align="center">
+  <img src="/images/photos/DSC08215.jpg" style='width: 70%;'>
+  <br>
+  <em>Golden State Mirage</em><br>
+  <em>Berkeley Bay View Point. Berkeley. October 2024.</em>
+</p>
+
+<p align="center">
   <img src="/images/photos/DSC08159.jpg" style='width: 70%;'>
   <br>
   <em>Across the Bay</em><br>

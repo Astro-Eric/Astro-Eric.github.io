@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
-  <img src="/images/photos/DSC09022.jpg" style='width: 100%;'>
+  <img src="/images/photos/DSC09022.jpg" style='width: 70%;'>
   <br>
   <em>Morning Glow and Morning Flow</em><br>
   <em>Oakhurst. February 2025.</em>

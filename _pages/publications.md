@@ -11,6 +11,11 @@ author_profile: true
 
 {% include base_path %}
 
+### [On Surjectivity of Neural Networks: Can you elicit any behavior from your model?](https://arxiv.org/pdf/2508.19445)
+**Haozhe Jiang**, Nika Haghtalab
+
+We prove that a lot of practical architures for generative models are surjective, regardless of how they are trained. This means that any output, including undesirable ones, can be elicited by some input, leading to a fundamental vulnerability to jailbreaks.
+
 ### [A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning](https://arxiv.org/pdf/2306.07465.pdf)  
 **Haozhe Jiang**, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du  
 Published on ICLR 2024

@@ -8,6 +8,13 @@ author_profile: true
 {% include base_path %}
 
 <p align="center">
+  <img src="/images/photos/DSC09563.jpg" style='width: 50%;'>
+  <br>
+  <em>ICLR Deadline Bonus</em><br>
+  <em>Vullmer Peak. Orinda. September 2025.</em>
+</p>
+
+<p align="center">
   <img src="/images/photos/DSC09022.jpg" style='width: 70%;'>
   <br>
   <em>Morning Glow and Morning Flow</em><br>

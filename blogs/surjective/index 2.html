@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/fav.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="https://astro-eric.github.io/blogs/surjective/">
+  <meta property="og:site_name" content="Haozhe Jiang">
+  <meta property="og:title" content="Can Transformers Do Everything, and Undo It Too?">
+  <meta property="og:description" content="Blog">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-11-16T23:29:21+05:30">
+    <meta property="article:modified_time" content="2025-11-16T23:29:21+05:30">
+    <meta property="article:tag" content="Paper">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Can Transformers Do Everything, and Undo It Too?">
+  <meta name="twitter:description" content="Blog">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+    
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+
+
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+
+
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "\\[", right: "\\]", display: true },
+      { left: "$", right: "$", display: false },
+      { left: "\\(", right: "\\)", display: false }
+    ]
+  });
+});
+</script>
+
+
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/fav.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="https://astro-eric.github.io/blogs/surjective/">
+  <meta property="og:site_name" content="Haozhe Jiang">
+  <meta property="og:title" content="Can Transformers Do Everything, and Undo It Too?">
+  <meta property="og:description" content="Blog">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-11-16T23:29:21+05:30">
+    <meta property="article:modified_time" content="2025-11-16T23:29:21+05:30">
+    <meta property="article:tag" content="Paper">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Can Transformers Do Everything, and Undo It Too?">
+  <meta name="twitter:description" content="Blog">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="Blog">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Can Transformers Do Everything, and Undo It Too? | Haozhe Jiang
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/fav.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Haozhe Jiang
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Bio
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/gallery" title="Gallery">
+                            
+                            Gallery
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/publications" title="Publications">
+                            
+                            Publications
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Can Transformers Do Everything, and Undo It Too?</h1>
+            <div class="text-center">
+              
+                Haozhe Jiang
+                <small>|</small>
+              
+              Nov 16, 2025
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/gifs/surjective/surjective.gif" alt="Can Transformers Do Everything, and Undo It Too?">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h1 id="large-language-models-are-surjective-injective-invertible">Large Language Models are Surjective? Injective? Invertible?</h1>
+<p>Recently, there have been discussions on functional properties of Transformers, the basic building block of Large Language Models (LLM) and many other generative models. A paper ([1]) proves that Transformers can output anything given an appropriate input (surjective). After a few month, a followup ([2]) proves that LLMs always send different inputs to different outputs (injective), and hence we can invert the outputs back to inputs. These claims being said, wild thoughts about generative models start flowing around. Are jailbreaks fundamentally unavoidable? Are Transfomers lossless compression of knowledge? Do we have no privacy when we use LLMs? Does combining the two papers imply that LLMs are bijective? In this blog, we clarify the concepts of surjectivity, injectivity and invertibility that appear in these papers and explain their true implications.</p>
+<h2 id="what-is-surjectivityinjectivityinvertibility">What is Surjectivity/Injectivity/Invertibility?</h2>
+<p>These concepts are not hard to understand but the differences are nuanced. In the following, we will work with a function $f:\mathcal{X}\to\mathcal{Y}$.</p>
+<ul>
+<li><strong>Surjective</strong>: Surjectivity means that for any $y$ from $\mathcal{Y}$, there exists an $x$ from $\mathcal{X}$, such that $f(x)=y$. In other words, every element in $\mathcal{Y}$ is reachable from some input from $\mathcal{X}$. A surjective function is also called an <strong>onto</strong> function.</li>
+<li><strong>Injective</strong>: Injectivity means that for any two different $x_1,x_2$ from $\mathcal{X}$, the outputs $f(x_1),f(x_2)$ are also differnt. In other words, different elements from $\mathcal{X}$ are mapped to different elements in $\mathcal{Y}$. An injective function is also called a <strong>one-to-one</strong> function.</li>
+<li><strong>Invertible</strong>: Invertibility means both surjectivity and injectivity. In other words, $f$ defines a correspondence between $\mathcal{X}$ and $\mathcal{Y}$, such that every elment in $\mathcal{X}$ correspond to a unique element in $\mathcal{Y}$ and vice versa. An invertible function is also called a <strong>bijective</strong> function. <em>We can invert an output of an injective function uniquely to its input, but an injective function is not necessarily an invertible function.</em></li>
+</ul>
+<p>Let us now look at some examples to understand their differences. We visualize three functions from two dimensional Euclidean space to itself, showing how the grids change according to the function.</p>
+<table style="width:100%; table-layout:fixed; text-align:center;">
+  <tr>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/surjective.gif" alt="Surjective" style="width:100%; height:auto;">
+      <div><strong>(a) Surjective but not Injective</strong></div>
+      <div style="font-size:0.9em; color:gray;">The output covers the whole space, while self-crossing</div>
+    </td>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/injective.gif" alt="Injective" style="width:100%; height:auto;">
+      <div><strong>(b) Injective but not Surjective</strong></div>
+      <div style="font-size:0.9em; color:gray;">Distinct inputs stay distinct, but an output region is not reached.</div>
+    </td>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/bijective.gif" alt="Bijective" style="width:100%; height:auto;">
+      <div><strong>(c) Bijective</strong></div>
+      <div style="font-size:0.9em; color:gray;">Perfect one-to-one pairing.</div>
+    </td>
+  </tr>
+</table>
+<h2 id="ok-cool-but-what-do-they-mean-for-generative-models-like-llms">OK cool! But what do they mean for generative models like LLMs?</h2>
+<p>Let us treat a generative model as a function $f$, where the input $x$ is the input we feed to the model, and output $y$ is the content the model generates. For now we do not specify what $\mathcal{X},\mathcal{Y}$ are exactly. Let us just think of them as input prompts and model responses for the moment and see what would happen if certain properties of $f$ were true.</p>
+<h5 id="when-f-is-surjective">When $f$ is surjective&hellip;</h5>
+<ol>
+<li><strong>$f$ is surjective means that jailbreaks are unavoidable in principle</strong> because for any harmful output, there exists an corresponding input to the output, that jailbreaks the model.</li>
+<li>The other direction is not correct. <strong>A generative model that can be jailbroken is not necessaily surjective</strong>. It can be the case that $f$ is not surjective but a harmful output falls in the range of $f$.</li>
+<li>One may argue that an identity function $f(x)=x$ is surjective, but not harmful. In the LLM world, we can start the conversation with &lsquo;Repeat the following sentences:&rsquo; to realize such function, given that the model is good at instruction following. One may further argue that the input corresponding to harmful outputs can be hard to find anyways. Indeed, surjectivity does not capture the capability of generative models, or how hard it is to find a corresponding input, and hence <strong>surjectivity alone does not imply that the model is unsafe in general</strong>. However, studying surjectivity is still a good starting point for safety. After all, we need to first ask whether jailbreaks are possible, and then ask whether jailbreaks are tractable.</li>
+<li><strong>When the generative model has physical consequences, surjectivity alone is already scary.</strong> A lot of robotics applications have started to use generative models due to their extraordinary capability. Let us say $\mathcal{X}$ is the visual inputs to a humanoid robot, and $\mathcal{Y}$ is the robot actions. A surjective policy $f$ would mean that there exists a video clip, such that when it is played to the robot, the robot goes to kill a person!</li>
+</ol>
+<h5 id="when-f-is-injective">When $f$ is injective&hellip;</h5>
+<ol>
+<li><strong>$f$ is injective means that it is possible to find out the input from the output in principle, and is hence vulnerable to privacy disclosure</strong> because no two inputs produce the same ouput.</li>
+<li>Another interpretation of injectivity is that <strong>$f$ is a lossless compression of the input.</strong></li>
+<li>Just like surjectivity, Injectivity does not capture how hard it is to find a corresponding input. <strong>Hence injectivity alone does not guarantee that we could recover input from the output.</strong></li>
+</ol>
+<p>As stated above, both surjectivity and injectivity are mere existential properties. Proving that a function is surjective/injective does not necessarily provide us with an easy way of finding the corresponding inputs. However, the connection between these properties and real-world risks is <strong>not</strong> symmetric. <strong>A safety violation</strong> occurs when a harmful output <strong>can be produced</strong> — that is, when such an output lies in the model’s range. This connects <em>directly</em> to surjectivity: if the model is surjective onto the harmful set, then by definition, every harmful output can be generated. The existence itself already signals potential danger. <strong>A privacy violation</strong>, on the other hand, happens when private information <strong>can be recovered</strong> from the output, so whether we could find out the information is by definition important. Injectivity only says that each output corresponds to a unique input, but it does <em>not</em> tell us that this input can be feasibly reconstructed. The secret may remain safe even if the mapping is injective, as long as inversion is computationally or statistically hard. In short,  <strong>surjectivity points to an immediate safety concern, whereas injectivity still depends on whether the inversion is actually achievable.</strong></p>
+<h2 id="so-are-llms-surjectiveinjectiveinvertible">So, Are LLMs Surjective/Injective/Invertible?</h2>
+<p>Now let us look into the claims in [1] and [2] and see what can be said about Transformers. Transformers are sequence models, i.e. they input sequence of vectors $a_1,\dots,a_n$, and outputs sequence $b_1,\dots,b_n=\text{TF}(a_1,\dots,a_n)$. Here $a_1,\dots,a_n,b_1,\dots,b_n\in\mathbb{R}^d$ are all vectors of the same dimension. In language models, every element of the input token sequence $s_1,\dots,s_n\in\mathcal{V}$  come from a finite vocabulary set $\mathcal{V}$. We first turn <em>discrete</em> tokens into <em>continuous</em> embeddings via a function $a_i=\text{Embed}(s_i)$ before passing it to $\text{TF}$. Similarly, we also turn <em>continuous</em> embeddings to <em>discrete</em> tokens via another function $t_i=\text{Unembed}(b_i)$ before outputting.</p>
+<p>Nowadays decoder-only Transformers like GPT decode iteratively in an <em>autoregressive</em> manner. We start from a prompt $s_1,\dots,s_n$. In each iteration we calculate $b_1,\dots,b_i=\text{TF}(a_1,\dots,a_i)$ from the already generated content $s_1,\dots,s_i$, decode the next token as $s_{i+1}=\text{Unembed}(b_i)$ and append it to the end of the existing content. The generation ends when we generate a special token $s_n=\texttt{EOS}$.</p>
+<h5 id="on-surjectivity-of-neural-networks-1">On Surjectivity of Neural Networks ([1])</h5>
+<p>This paper proves that <strong>$\text{TF}$ is a surjective function</strong>, no matter what the parameters are. However it does <strong>not</strong> prove that LLMs are surjective for the following two reasons:</p>
+<ol>
+<li>This paper works in the continuous space, while the language models work in the discrete space.</li>
+<li>This paper does not work with autoregressive generation.</li>
+</ol>
+<p>This conclusion sounds reassuring for langauge models. However, <strong>the paper proves surjectivity results for broader popular generative model architecutres</strong>, such as <em>diffusion models</em> and <em>robotics models</em>. For these applications discretization and autoregressiveness do not exist, and hence the safety threats are more serious. One may refer to Section 4 of the paper for more discussions.</p>
+<h5 id="language-models-are-injective-and-hence-invertible-2">Language Models are Injective and Hence Invertible ([2])</h5>
+<p><strong>This paper analyzes a different function from the last one.</strong>  It proves that <strong>the function from $s_1,\dots,s_n$, the input <em>token sequence</em>, to $b_n$, the output <em>embedding</em>, is injective</strong>, excluding a negligible subset of $\text{TF}$&rsquo;s parameter space. However, it does <strong>not</strong> prove that LLMs are injective from input sequences to output sequences, as different embeddings can lead to the same token.</p>
+<p>Moreover, the function from input token sequence to output embedding is <strong>not</strong> surjective. This is because the set of input sequences is discrete and the set of output embeddings is continuous, and no continuous function with discrete inputs can be surjective on a continuous output. <strong>Hence this function is not invertible.</strong> The word invertible in the title is <strong>not</strong> used in a conventional way, and just mean that it is possible to invert an already generated output back to input.</p>
+<p>Let us now comparing these two settings in a minimal setting. Let&rsquo;s say the input is just a single token $s_1\in\mathcal{V}={\text{one},\text{day},\text{egg}}$, it is transformed into a 2-dimensional embedding $a_1$. The output $b_1=\text{TF}(a_1)$ is also two dimensional. According to [1] the function from $a_1$ to $b_1$ is surjective, and according to [2] the function from $s_1$ to $b_1$is injective. The $\text{TF}$ transformation looks like the following:</p>
+<table style="width:100%; table-layout:fixed; text-align:center;">
+  <tr>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/surjective.gif" alt="Surjective" style="width:100%; height:auto;">
+      <div><strong>(a) Continuous to Continuous</strong></div>
+      <div style="font-size:0.9em; color:gray;">The output covers the whole space, while self-crossing.</div>
+    </td>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/contrast.gif" alt="Injective" style="width:100%; height:auto;">
+      <div><strong>(b) Contrast</strong></div>
+      <div style="font-size:0.9em; color:gray;">The continuous function is surjective, while the discrete function is injective.</div>
+    </td>
+    <td style="width:33%;">
+      <img src="/gifs/surjective/discrete.gif" alt="Bijective" style="width:100%; height:auto;">
+      <div><strong>(c) Discrete to Continuous</strong></div>
+      <div style="font-size:0.9em; color:gray;">Different embeddings do not collide.</div>
+    </td>
+  </tr>
+</table>
+<p>From this figure, the fact that <strong>a map from a discrete set to a continuous set is very likely injective</strong> should be intuitive. The rigorous proof is presented [1]. The surjectivity between two continuous spaces, however, is a lot trickier, and I will write another blog dedicated to explaining the intuitions and proofs. Furthermore, <strong>both papers provide similar algorithms to recover $a_1,\dots,a_n$ from $b_1,\dots,b_n$ given the parameters in $\text{TF}$</strong>, and the inputs turn out to be very easy to recover in this setting. However, this setting is far from useful and how to recover $s_1,\dots,s_n$ from $b_n$ remains elusive.</p>
+<h2 id="concluding-remarks">Concluding Remarks</h2>
+<p>After reading this blog, it should be clear that <strong>LLMs are neither surjective nor injective from input sequences to output sequences</strong>. Though surjectivity has safety implications and injectivity has privacy implications, these threats has <strong>not</strong> reached the realm of LLMs yet. The seemingly contradicting claims from the two papers stem from the fact that they are considering different functions. More broadly, surjectivity/injectivity could imply safety/privacy risks in domains where continuous inputs/outputs are present.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Haozhe Jiang and Nika Haghtalab. On surjectivity of neural networks: Can you elicit any behavior from your model? <em>arXiv preprint arXiv:2508.19445</em>, 2025.</p>
+<p>[2] Giorgos Nikolaou, Tommaso Mencattini, Donato Crisostomi, Andrea Santilli, Yannis Panagakis and Emanuele Rodolà. Language Models are Injective and Hence Invertible <em>arXiv preprint arXiv:2510.15511</em>, 2025.</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-surjectivityinjectivityinvertibility">What is Surjectivity/Injectivity/Invertibility?</a></li>
+    <li><a href="#ok-cool-but-what-do-they-mean-for-generative-models-like-llms">OK cool! But what do they mean for generative models like LLMs?</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#so-are-llms-surjectiveinjectiveinvertible">So, Are LLMs Surjective/Injective/Invertible?</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#concluding-remarks">Concluding Remarks</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="https://astro-eric.github.io/tags/paper"
+                target="_blank"
+              >Paper</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text=Blog https%3a%2f%2fastro-eric.github.io%2fblogs%2fsurjective%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='https://twitter.com/share?text=Can%20Transformers%20Do%20Everything%2c%20and%20Undo%20It%20Too%3f&url=https%3a%2f%2fastro-eric.github.io%2fblogs%2fsurjective%2f&hashtags=Paper'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Can%20Transformers%20Do%20Everything%2c%20and%20Undo%20It%20Too%3f&amp;body=Check%20out%20this%20site https%3a%2f%2fastro-eric.github.io%2fblogs%2fsurjective%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="https://astro-eric.github.io/" title="Haozhe Jiang">
+                        <img alt="Footer logo" src="/fav.png"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2025  All rights reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script src="/js/search.js"></script>
+
+
+
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" integrity="sha384-M5jmNxKC9EVnuqeMwRHvFuYUE8Hhp0TgBruj/GZRkYtiMrCRgH7yvv5KY+Owi7TW" crossorigin="anonymous"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

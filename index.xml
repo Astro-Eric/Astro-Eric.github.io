@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haozhe Jiang</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Haozhe Jiang</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Nov 2025 23:29:21 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Can Transformers Do Everything, and Undo It Too?</title>
+      <link>http://localhost:1313/blogs/surjective/</link>
+      <pubDate>Sun, 16 Nov 2025 23:29:21 +0530</pubDate>
+      <guid>http://localhost:1313/blogs/surjective/</guid>
+      <description>&lt;h1 id=&#34;large-language-models-are-surjective-injective-invertible&#34;&gt;Large Language Models are Surjective? Injective? Invertible?&lt;/h1&gt;&#xA;&lt;p&gt;Recently, there have been discussions on functional properties of Transformers, the basic building block of Large Language Models (LLM) and many other generative models. A paper ([1]) proves that Transformers can output anything given an appropriate input (surjective). After a few month, a followup ([2]) proves that LLMs always send different inputs to different outputs (injective), and hence we can invert the outputs back to inputs. These claims being said, wild thoughts about generative models start flowing around. Are jailbreaks fundamentally unavoidable? Are Transfomers lossless compression of knowledge? Do we have no privacy when we use LLMs? Does combining the two papers imply that LLMs are bijective? In this blog, we clarify the concepts of surjectivity, injectivity and invertibility that appear in these papers and explain their true implications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Under Construction</title>
+      <link>http://localhost:1313/gallery/</link>
+      <pubDate>Sat, 25 Jun 2022 18:35:46 +0530</pubDate>
+      <guid>http://localhost:1313/gallery/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>http://localhost:1313/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/</guid>
+      <description>&lt;div class=&#34;pub-search-index&#34; style=&#34;display:none&#34;&gt; On Surjectivity of Neural Networks: Can you elicit any behavior from your model?  Haozhe Jiang, Nika Haghtalab  Theory Deep Learning  We prove that a lot of practical architures for generative models are surjective, regardless of how they are trained. This means that any output, including undesirable ones, can be elicited by some input, leading to a fundamental vulnerability to jailbreaks.&#xA; &#xA;&#xA;   A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning  Haozhe Jiang, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du  Theory Game Theory  ICLR 2024  Can we track Equilibria in non-stationary Multi-agent systems? We comprehensively analyze this problem and find most non-stationary bandit algorithms fail to generalize. In multi-agent systems, **different actions compete with different best responses**. This forbids us from comparing actions by comparing their own rewards, sabotaging all test-based algorithms. We solve this problem by using an Explore-then-Commit-then-Test algorithm, in combination with prior techniques. This black-box algorithm is simple but admits a no-regret guarantee.&#xA; &#xA;&#xA;   Offline Meta Reinforcement Learning with In-Distribution Online Adaptation  Jianhao Wang*, Jin Zhang*, Haozhe Jiang, Junyu Zhang, Liwei Wang, Chongjie Zhang  Reinforcement Learning Meta Learning  ICML 2023  Why is it hard to do offline meta-learning? We point out that the meta-learning setting induces a new type of **distribution shift between offline training and online adaptation**. We characterize this challenge and propose IDAQ, a simple greedy context-based algorithm to tackle this problem.&#xA; &#xA;&#xA;   Practically Solving LPN in High Noise Regimes Faster Using Neural Networks  Haozhe Jiang*, Kaiyue Wen*, Yilei Chen  Theory Cryptography Deep Learning  Can we break the Learning Parity with Noise (LPN) problem with Neural Networks? Empirically, we find out that **when the noise is high, neural networks are particularly useful**. We corroborate this observation by proving that the sample complexity of some neural networks scales optimally with the noise. This is the first neural-network-based algorithm surpassing all classical counterparts in breaking cryptographic primitives.&#xA; &#xA;&#xA;   Offline congestion games: How feedback type affects data coverage requirement  Haozhe Jiang*, Qiwen Cui*, Zhihan Xiong, Maryam Fazel, Simon S Du   Theory Game Theory  ICLR 2023  If we want to learn Nash Equilibrium in congestion games, what offline dataset should we have? By looking at **dataset coverage in facility space** instead of action space, we find out the minimal dataset coverage requirement. We also present efficient learning algorithms and demonstrate the **separation** of coverage requirements under different feedback models.&#xA; &#xA;&#xA;   Offline reinforcement learning with reverse model-based imagination  Jianhao Wang*, Wenzhe Li*, Haozhe Jiang, Guangxiang Zhu, Siyuan Li, Chongjie Zhang  Reinforcement Learning  NeurIPS 2021  You can’t connect the dots looking forward; you can only connect them looking backwards. How to learn RL policy generalizing from offline datasets while avoiding dangerous actions? We propose to **learn a reverse dynamic model** instead of a forward one. If a forward model goes wrong, the learned policy may take dangerous actions. If a reverse model goes wrong, the agent still acts safely because it could not start at the wrong reversed state in the first place.&#xA; &#xA;&#xA;  &lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

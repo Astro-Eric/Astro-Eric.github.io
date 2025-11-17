@@ -1,3 +1,0 @@
----
-redirect: /files/resume.pdf
----

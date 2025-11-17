@@ -301,6 +301,21 @@ Publications | Haozhe Jiang
   <div class="container">
     <h3 class="text-center">Publications</h3>
 
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="pub-search-bar">
+          <input
+            id="pub-search"
+            type="text"
+            placeholder="Search by title, authors, or badges…"
+          >
+          <small class="text-muted d-block mt-1">
+            Click a badge to filter by topic.
+          </small>
+        </div>
+      </div>
+    </div>
+
     <div class="row justify-content-center py-5">
       
       
@@ -311,7 +326,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="On Surjectivity of Neural Networks: Can you elicit any behavior from your model?"
+                data-authors="Haozhe Jiang, Nika Haghtalab"
+                
+                data-badges="Theory Deep Learning"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -366,7 +388,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="A Black-box Approach for Non-stationary Multi-agent Reinforcement Learning"
+                data-authors="Haozhe Jiang, Qiwen Cui, Zhihan Xiong, Maryam Fazel, Simon S Du"
+                
+                data-badges="Theory Game Theory"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -423,7 +452,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="Offline Meta Reinforcement Learning with In-Distribution Online Adaptation"
+                data-authors="Jianhao Wang*, Jin Zhang*, Haozhe Jiang, Junyu Zhang, Liwei Wang, Chongjie Zhang"
+                
+                data-badges="Reinforcement Learning Meta Learning"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -482,7 +518,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="Practically Solving LPN in High Noise Regimes Faster Using Neural Networks"
+                data-authors="Haozhe Jiang*, Kaiyue Wen*, Yilei Chen"
+                
+                data-badges="Theory Cryptography Deep Learning"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -539,7 +582,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="Offline congestion games: How feedback type affects data coverage requirement"
+                data-authors="Haozhe Jiang*, Qiwen Cui*, Zhihan Xiong, Maryam Fazel, Simon S Du "
+                
+                data-badges="Theory Game Theory"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -596,7 +646,14 @@ Publications | Haozhe Jiang
           
 
           <div class="col-md-9">
-            <div class="card">
+            <div
+                class="card pub-card"
+                data-title="Offline reinforcement learning with reverse model-based imagination"
+                data-authors="Jianhao Wang*, Wenzhe Li*, Haozhe Jiang, Guangxiang Zhu, Siyuan Li, Chongjie Zhang"
+                
+                data-badges="Reinforcement Learning"
+                
+            >
               <div class="card-body">
 
                 <div class="float-end">
@@ -649,6 +706,62 @@ Publications | Haozhe Jiang
     </div>
   </div>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("pub-search");
+  if (!searchInput) return;
+
+  const cards = Array.from(document.querySelectorAll("#publications .pub-card"));
+  const badges = Array.from(document.querySelectorAll("#publications .badge"));
+  let activeTag = "";
+
+  function applyFilters() {
+    const q = (searchInput.value || "").trim().toLowerCase();
+
+    cards.forEach(card => {
+      const title   = (card.dataset.title   || "").toLowerCase();
+      const authors = (card.dataset.authors || "").toLowerCase();
+      const badges  = (card.dataset.badges  || "").toLowerCase();
+
+      let matchesText =
+        !q ||
+        title.includes(q) ||
+        authors.includes(q) ||
+        badges.includes(q);
+
+      let matchesTag =
+        !activeTag ||
+        badges.includes(activeTag);
+
+      card.style.display = (matchesText && matchesTag) ? "" : "none";
+    });
+  }
+
+  
+  searchInput.addEventListener("input", applyFilters);
+
+  
+  badges.forEach(badge => {
+    badge.style.cursor = "pointer";
+    badge.addEventListener("click", function () {
+      const tag = this.textContent.trim().toLowerCase();
+
+      
+      activeTag = (activeTag === tag) ? "" : tag;
+
+      
+      badges.forEach(b => b.classList.remove("badge-active"));
+      if (activeTag) {
+        badges
+          .filter(b => b.textContent.trim().toLowerCase() === activeTag)
+          .forEach(b => b.classList.add("badge-active"));
+      }
+
+      applyFilters();
+    });
+  });
+});
+</script>
 
   </div><footer>
     

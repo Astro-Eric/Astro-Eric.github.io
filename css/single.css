@@ -240,6 +240,16 @@
     padding-left: .7em;
 }
 
+/* Add vertical spacing between TOC items */
+#single aside.toc .toc-content #TableOfContents li {
+    margin-bottom: 0.8rem;   /* adjust as needed */
+}
+
+/* Remove extra space after the last one */
+#single aside.toc .toc-content #TableOfContents li:last-child {
+    margin-bottom: 0;
+}
+
 /* Social */
 
 #single aside.social {

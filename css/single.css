@@ -18,9 +18,10 @@
     margin-bottom: 1.5rem;
 }
 
-#single .featured-image img {
+#single .featured-image img,
+#single .featured-image video {
     width: 100%;
-    height: 520px;          /* change this height to crop more/less */
+    height: 520px !important; /* change this height to crop more/less */
     object-fit: cover;      /* makes cropping automatic */
     object-position: center;/* crop center */
     
